@@ -15,6 +15,7 @@ comment4.target=int[]\ shape(java.lang.String)
 comment4.text=\r\n\ M\u00E9todo\ que\ obtiene\ el\ tama\u00F1o\ de\ la\ estructura\ de\ datos\ con\ ayuda\ del\ m\u00E9todo\ shape\ de\ la\ clase\ DataFrame.\r\n\ @param\ a\ El\ par\u00E1metro\ a\ ayuda\ a\ verificar\ el\ tama\u00F1o\ de\ la\ tabla\ (debe\ ser\ el\ mismo\ String\ definido).\r\n
 comment5.params=a\ b\ op\ parameters
 comment5.target=void\ assignUnary(java.lang.String,\ java.lang.String,\ char,\ java.lang.String[])
+comment5.text=\r\n\ M\u00E9todo\ que\ asigna\ el\ valor\ de\ una\ operaci\u00F3n\ unaria\ a\ una\ variable.\r\n\ @param\ a\ El\ par\u00E1metro\ a\ es\ el\ nombre\ de\ la\ nueva\ variable\ destino.\r\n\ @param\ b\ El\ par\u00E1metro\ b\ es\ el\ nombre\ de\ la\ variable\ de\ origen.\r\n\ @param\ op\ El\ par\u00E1metro\ op\ define\ la\ operaci\u00F3n\ ('r',\ 'c',\ '?').\r\n\ @param\ parameters\ El\ par\u00E1metro\ parameters\ contiene\ los\ argumentos\ de\ la\ operaci\u00F3n.\r\n
 comment6.params=a\ b\ op\ c
 comment6.target=void\ assignBinary(java.lang.String,\ java.lang.String,\ char,\ java.lang.String)
 comment7.params=variable\ rows

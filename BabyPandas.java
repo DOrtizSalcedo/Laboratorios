@@ -58,8 +58,54 @@ public class BabyPandas{
     //The parameters for 'c' are [column1, column2, ...]
     //The parameters for '?' are [valueColumn1, valueColumn2, ...]
 
+//Assigns the value of a unary operation to a variable
+    // a = b op parameters
+    //The operator characters are: 'r' select rows, 'c' select columns, '?' select condition
+    //The parameters for 'r' are [index1, index2, ...]
+    //The parameters for 'c' are [column1, column2, ...]
+    //The parameters for '?' are [valueColumn1, valueColumn2, ...]
+    /**
+     * Método que asigna el valor de una operación unaria a una variable.
+     * @param a El parámetro a es el nombre de la nueva variable destino.
+     * @param b El parámetro b es el nombre de la variable de origen.
+     * @param op El parámetro op define la operación ('r', 'c', '?').
+     * @param parameters El parámetro parameters contiene los argumentos de la operación.
+     */
     public void assignUnary(String a, String b, char op, String [] parameters){
-    }
+        if (b == null || !variables.containsKey(b) || variables.get(b) == null) {
+            throw new IllegalArgumentException("La variable de origen no existe.");
+        }
+        
+        DataFrame source = variables.get(b);
+        DataFrame result = null;
+
+        switch (op) {
+            case 'r': // Seleccionar filas
+                int[] rowIndices = new int[parameters.length];
+                for (int i = 0; i < parameters.length; i++) {
+                    rowIndices[i] = Integer.parseInt(parameters[i]);
+                }
+                result = source.selectRows(rowIndices);
+                break;
+                
+            case 'c': // Seleccionar columnas
+                result = source.selectColumns(parameters);
+                break;
+                
+            case '?': // Seleccionar por condición
+                if (parameters == null || parameters.length < 2) {
+                    throw new IllegalArgumentException("La condición requiere [columna, valor]");
+                }
+                result = source.filterCondition(parameters[0], parameters[1]);
+                break;
+                
+            default:
+                throw new IllegalArgumentException("Operador no soportado: " + op);
+        }
+        
+        // Asignamos el resultado a la nueva variable
+        variables.put(a, result);
+    } // Cierre del método.
       
     
     //Assigns the value of a binary operation to a variable

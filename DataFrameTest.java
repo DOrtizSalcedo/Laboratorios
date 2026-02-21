@@ -108,4 +108,51 @@ public class DataFrameTest{
     public void tearDown()
     {
     }
+    
+    @Test
+    public void shouldSelectRowsCorrectly() {
+        String [] columns = {"Nombre", "Edad", "Profesión"};
+        String [][] data = {
+            {"Carlos", "35", "Profesor"}, 
+            {"Ana", "42", "Doctor"}, 
+            {"Jorge", "30", "Arquitecto"}
+        };
+        DataFrame df = new DataFrame(data, columns);
+        
+        // Seleccionamos la fila 0 y 2
+        DataFrame subset = df.selectRows(new int[]{0, 2});
+        int [] expectedShape = {2, 3}; // Quedan 2 filas y 3 columnas
+        assertArrayEquals(expectedShape, subset.shape());   
+    }
+
+    @Test
+    public void shouldSelectColumnsCorrectly() {
+        String [] columns = {"Nombre", "Edad", "Profesión"};
+        String [][] data = {
+            {"Carlos", "35", "Profesor"}, 
+            {"Ana", "42", "Doctor"}
+        };
+        DataFrame df = new DataFrame(data, columns);
+        
+        // Seleccionamos solo la columna "Nombre" y "Profesión"
+        DataFrame subset = df.selectColumns(new String[]{"Nombre", "Profesión"});
+        int [] expectedShape = {2, 2}; // Quedan 2 filas y 2 columnas
+        assertArrayEquals(expectedShape, subset.shape());   
+    }
+
+    @Test
+    public void shouldFilterByConditionCorrectly() {
+        String [] columns = {"Nombre", "Edad", "Profesión"};
+        String [][] data = {
+            {"Carlos", "35", "Profesor"}, 
+            {"Ana", "42", "Doctor"},
+            {"Luis", "35", "Ingeniero"}
+        };
+        DataFrame df = new DataFrame(data, columns);
+        
+        // Filtramos donde la Edad sea "35"
+        DataFrame subset = df.filterCondition("Edad", "35");
+        int [] expectedShape = {2, 3}; // Deben quedar Carlos y Luis (2 filas)
+        assertArrayEquals(expectedShape, subset.shape());   
+    }
 }
