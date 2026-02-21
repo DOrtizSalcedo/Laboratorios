@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=DataFrame
+comment0.text=\r\n\ Estructura\ de\ datos\ que\ contiene\ datos\ heterog\u00E9neos.\r\n\ @autor\:\ Juan\ Pablo\ Cuervo\ Contreras,\ David\ Felipe\ Ortiz\ Salcedo\r\n\ @version\:\ 21/02/2026\r\n
+comment1.params=data\ columns
+comment1.target=DataFrame(java.lang.String[][],\ java.lang.String[])
+comment1.text=\r\n\ Constructor\ para\ la\ estructura\ de\ datos.\r\n\ @param\ data\ Son\ las\ filas\ que\ contienen\ informaci\u00F3n.\r\n\ @param\ columns\ Son\ las\ columnas\ que\ contienen\ informaci\u00F3n.\r\n
+comment2.params=rows\ columns
+comment2.target=DataFrame\ loc(int[],\ java.lang.String)
+comment2.text=\r\n\ \r\n
+comment3.params=values
+comment3.target=DataFrame\ select(java.lang.String[])
+comment4.params=dfs\ axis
+comment4.target=DataFrame\ concat(DataFrame[],\ byte)
+comment5.params=
+comment5.target=int[]\ shape()
+comment6.params=rows
+comment6.target=java.lang.String\ head(int)
+comment6.text=\r\n\ M\u00E9todo\ que\ retorna\ las\ primeras\ filas\ de\ una\ tabla.\r\n\ @param\ rows\ El\ par\u00E1metro\ rows\ indica\ las\ filas\ de\ la\ tabla.\r\n
+comment7.params=df
+comment7.target=boolean\ equals(DataFrame)
+comment8.params=o
+comment8.target=boolean\ equals(java.lang.Object)
+numComments=9
