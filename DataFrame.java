@@ -21,13 +21,13 @@ public class DataFrame {
      * @param columns Son las columnas que contienen información.
      */
     public DataFrame(String [][] data, String [] columns){
-        this.columns = columns;
-        int helper = 0;
-        for(String[] fila : data) {
-            if(fila.length == columns.length) {
-                helper++;
+            this.columns = columns;
+            int helper = 0;
+            for(String[] fila : data) {
+                if(fila.length == columns.length) {
+                    helper++;
+            }
         }
-    }
         this.data = new String[helper][columns.length];
         int secondHelper = 0;
         for(int i = 0; i < data.length; i++) {
@@ -38,19 +38,8 @@ public class DataFrame {
         }
         this.shape = new int[]{helper, columns.length};
     } // Cierre del constructor.
-    
-    /**
-     * 
-     */
-    public DataFrame loc(int [] rows, String columns){
-        return null;
-    }    
-    
-    public DataFrame select(String [] values){
-        return null;
-    }      
 
-
+    
     /**
      * Método que concatena el DataFrame actual con otros DataFrames de forma simple.
      * @param dfs Arreglo de DataFrames a concatenar (usaremos el primero).
@@ -94,9 +83,9 @@ public class DataFrame {
             }
         } // Cierre del método.
     
-        public int [] shape(){
+    public int [] shape(){
             return this.shape;
-        }    
+    }    
     
    
     // The columns are aligned, separated by three spaces, and include the index.
