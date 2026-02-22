@@ -111,8 +111,32 @@ public class BabyPandas{
     //Assigns the value of a binary operation to a variable
     // a = b op c
     //The operator characters are:  'r' concate by rows, 'c' concate by columns
+//Assigns the value of a binary operation to a variable
+    // a = b op c
+    //The operator characters are:  'r' concate by rows, 'c' concate by columns
+    /**
+     * Método que asigna el valor de una operación binaria a una variable sin validaciones extra.
+     * @param a Nombre de la nueva variable destino.
+     * @param b Nombre de la primera variable de origen.
+     * @param op Operador ('r' para filas, 'c' para columnas).
+     * @param c Nombre de la segunda variable de origen.
+     */
     public void assignBinary(String a, String b, char op, String c){
-    }
+        DataFrame dfB = variables.get(b);
+        DataFrame dfC = variables.get(c);
+        
+        // Por defecto será 0 (filas), si el operador es 'c', lo cambiamos a 1 (columnas)
+        byte axis = 0;
+        if (op == 'c') {
+            axis = 1;
+        }
+        
+        // Llamamos al método concat enviando dfC dentro de un arreglo
+        DataFrame result = dfB.concat(new DataFrame[]{dfC}, axis);
+        
+        // Guardamos el resultado en la nueva variable
+        variables.put(a, result);
+    } // Cierre del método.
   
     
     //Return some rows of the DataFrame

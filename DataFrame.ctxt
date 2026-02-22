@@ -17,6 +17,7 @@ comment3.params=values
 comment3.target=DataFrame\ select(java.lang.String[])
 comment4.params=dfs\ axis
 comment4.target=DataFrame\ concat(DataFrame[],\ byte)
+comment4.text=\r\n\ M\u00E9todo\ que\ concatena\ el\ DataFrame\ actual\ con\ otros\ DataFrames\ de\ forma\ simple.\r\n\ @param\ dfs\ Arreglo\ de\ DataFrames\ a\ concatenar\ (usaremos\ el\ primero).\r\n\ @param\ axis\ Eje\ de\ concatenaci\u00F3n\:\ 0\ para\ filas,\ 1\ para\ columnas.\r\n\ @return\ Un\ nuevo\ DataFrame\ con\ los\ datos\ unidos.\r\n
 comment5.params=
 comment5.target=int[]\ shape()
 comment6.params=rows
