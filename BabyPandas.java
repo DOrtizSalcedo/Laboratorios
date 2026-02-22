@@ -49,8 +49,7 @@ public class BabyPandas{
         }
         return variables.get(a).shape();
     } // Cierre del método.
-    
-    
+     
     //Assigns the value of a unary operation to a variable
     // a = b op parameters
     //The operator characters are: 'r' select rows, 'c' select columns, '?' select condition
@@ -106,7 +105,6 @@ public class BabyPandas{
         // Asignamos el resultado a la nueva variable
         variables.put(a, result);
     } // Cierre del método.
-      
     
     //Assigns the value of a binary operation to a variable
     // a = b op c
@@ -137,7 +135,6 @@ public class BabyPandas{
         // Guardamos el resultado en la nueva variable
         variables.put(a, result);
     } // Cierre del método.
-  
     
     //Return some rows of the DataFrame
     /**
@@ -155,11 +152,14 @@ public class BabyPandas{
         return variables.get(variable).head(rows);
     } // Cierre del método.
     
-    
     //If the last operation was successfully completed
+    /**
+     * Verifica si la última operación se pudo realizar.
+     * @return Un booleano que verifica si se pudo realizar la operación o no.
+     */
     public boolean ok(){
         return false;
-    }
+    } // Cierre del método.
 }
     
 

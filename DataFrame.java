@@ -83,9 +83,13 @@ public class DataFrame {
             }
         } // Cierre del método.
     
+    /**
+     * Retorna el tamaño completo de la tabla.
+     * @return Un HashMap que dice el tamaño completo de la tabla.
+     */
     public int [] shape(){
             return this.shape;
-    }    
+    } // Cierre del método.
     
    
     // The columns are aligned, separated by three spaces, and include the index.
@@ -120,14 +124,24 @@ public class DataFrame {
             String resultado = encabezado.toString();
             return resultado;
         } // Cierre del método.
-         
+    
+    /**
+     * Verifica si el DataFrame es igual.
+     * @param df El parámetro df es un DataFrame para verificar si es igual a otro.
+     * @return Un booleano dependiendo si es igual o no.
+     */
     public boolean equals(DataFrame df){
         return false;
-    }
+    } // Cierre del método.
     
+    /**
+     * Verifica si el DataFrame es igual.
+     * @param o El parámetro o es un Objeto que verifica si es igual a otro objeto.
+     * @return Un booleano dependiendo si es igual o no.
+     */
     public boolean equals(Object o){
         return equals((DataFrame)o);
-    }
+    } // Cierre del método.
     
     /**
      * Método que selecciona filas específicas según sus índices.
@@ -213,6 +227,4 @@ public class DataFrame {
         }
         return new DataFrame(newData, this.columns);
     } // Cierre del método.
-    
-    
 }

@@ -24,4 +24,5 @@ comment7.target=java.lang.String\ head(java.lang.String,\ int)
 comment7.text=\r\n\ M\u00E9todo\ que\ retorna\ las\ primeras\ filas\ de\ una\ tabla.\r\n\ @param\ variable\ El\ par\u00E1metro\ variable\ es\ la\ variable\ definida.\r\n\ @param\ rows\ El\ par\u00E1metro\ rows\ indica\ las\ filas\ de\ la\ tabla.\r\n
 comment8.params=
 comment8.target=boolean\ ok()
+comment8.text=\r\n\ Verifica\ si\ la\ \u00FAltima\ operaci\u00F3n\ se\ pudo\ realizar.\r\n\ @return\ Un\ booleano\ que\ verifica\ si\ se\ pudo\ realizar\ la\ operaci\u00F3n\ o\ no.\r\n
 numComments=9
