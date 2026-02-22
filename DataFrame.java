@@ -51,53 +51,52 @@ public class DataFrame {
     }      
 
 
-    public DataFrame concat(DataFrame [] dfs, byte axis){
-/**
+    /**
      * Método que concatena el DataFrame actual con otros DataFrames de forma simple.
      * @param dfs Arreglo de DataFrames a concatenar (usaremos el primero).
      * @param axis Eje de concatenación: 0 para filas, 1 para columnas.
      * @return Un nuevo DataFrame con los datos unidos.
      */
     public DataFrame concat(DataFrame[] dfs, byte axis) {
-        DataFrame other = dfs[0]; // Asumimos que el arreglo siempre trae al menos un DataFrame
-        
-        if (axis == 0) { // Concatenar por FILAS (una debajo de otra)
-            // Calculamos el nuevo tamaño sumando las filas
-            String[][] newData = new String[this.data.length + other.data.length][this.columns.length];
+            DataFrame other = dfs[0]; // Asumimos que el arreglo siempre trae al menos un DataFrame
             
-            // Copiamos la tabla original
-            for (int i = 0; i < this.data.length; i++) {
-                newData[i] = this.data[i];
+            if (axis == 0) { // Concatenar por FILAS (una debajo de otra)
+                // Calculamos el nuevo tamaño sumando las filas
+                String[][] newData = new String[this.data.length + other.data.length][this.columns.length];
+                
+                // Copiamos la tabla original
+                for (int i = 0; i < this.data.length; i++) {
+                    newData[i] = this.data[i];
+                }
+                // Copiamos la segunda tabla justo debajo
+                for (int i = 0; i < other.data.length; i++) {
+                    newData[this.data.length + i] = other.data[i];
+                }
+                
+                return new DataFrame(newData, this.columns);
+                
+            } else { // Si no es 0, asumimos que es 1 -> Concatenar por COLUMNAS (una al lado de otra)
+                // Unimos los nombres de las columnas
+                String[] newCols = new String[this.columns.length + other.columns.length];
+                System.arraycopy(this.columns, 0, newCols, 0, this.columns.length);
+                System.arraycopy(other.columns, 0, newCols, this.columns.length, other.columns.length);
+                
+                // Unimos los datos fila por fila
+                String[][] newData = new String[this.data.length][newCols.length];
+                for (int i = 0; i < this.data.length; i++) {
+                    // Mitad izquierda (tabla original)
+                    System.arraycopy(this.data[i], 0, newData[i], 0, this.columns.length);
+                    // Mitad derecha (tabla a agregar)
+                    System.arraycopy(other.data[i], 0, newData[i], this.columns.length, other.columns.length);
+                }
+                
+                return new DataFrame(newData, newCols);
             }
-            // Copiamos la segunda tabla justo debajo
-            for (int i = 0; i < other.data.length; i++) {
-                newData[this.data.length + i] = other.data[i];
-            }
-            
-            return new DataFrame(newData, this.columns);
-            
-        } else { // Si no es 0, asumimos que es 1 -> Concatenar por COLUMNAS (una al lado de otra)
-            // Unimos los nombres de las columnas
-            String[] newCols = new String[this.columns.length + other.columns.length];
-            System.arraycopy(this.columns, 0, newCols, 0, this.columns.length);
-            System.arraycopy(other.columns, 0, newCols, this.columns.length, other.columns.length);
-            
-            // Unimos los datos fila por fila
-            String[][] newData = new String[this.data.length][newCols.length];
-            for (int i = 0; i < this.data.length; i++) {
-                // Mitad izquierda (tabla original)
-                System.arraycopy(this.data[i], 0, newData[i], 0, this.columns.length);
-                // Mitad derecha (tabla a agregar)
-                System.arraycopy(other.data[i], 0, newData[i], this.columns.length, other.columns.length);
-            }
-            
-            return new DataFrame(newData, newCols);
-        }
-    } // Cierre del método.
-
-    public int [] shape(){
-        return this.shape;
-    }    
+        } // Cierre del método.
+    
+        public int [] shape(){
+            return this.shape;
+        }    
     
    
     // The columns are aligned, separated by three spaces, and include the index.
